@@ -1,2 +1,155 @@
+/* z-index order */
 
-  
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 50;
+}
+
+:root{
+  --col-01:#ffffff;
+  --col-02:rgb(0, 0, 0);
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+}
+
+h1{
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col-01);
+  color: var(--col-02);
+  padding: 2vw;
+  font-size: 17px;
+  color: #888;
+  line-height: 27px;
+  font-family: 'Montserrat', sans-serif;
+  text-align:center
+}
+
+
+.RecipeBox{
+  display: flex;
+  flex-direction: column;
+  border: var(--border);
+}
+
+.FilterSection{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.FilterBox{
+
+}
+
+.FilterButton{
+  padding: 13px 40px;
+  font-size: 12px;
+  font-weight: 700;
+  background: none;
+  border: 2px solid;
+  border-radius: 50px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  box-shadow: 0 0 3px 7px transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* the hover effect is created to make the visual more interesting and appealing  */
+.FilterButton:hover {
+  box-shadow: 0 0 0 0 #000;
+  background: #000;
+  color: #fff;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+/* here i decied to corss on the selected filter to distinguish it, and to allow user to remeber their selection */
+.SelectedFilter{
+  text-decoration: line-through;
+  color: #000;
+}
+
+
+.RecipeName{
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 27px;
+  margin-top: 25px;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+
+}
+
+.Author{
+  font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.RecipeImageContainer{
+
+}
+
+.RecipeImg{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.Attribution{
+
+}
+
+.Publisher{
+
+}
+
+.Cuisine{
+
+}
+
+.TimeToCook{
+
+}
+
+.SkillLevel{
+
+}
+
+.Course{
+
+}
+
+.Servings{
+
+}
+
+.Dietary{
+
+}
+
+.DatePublished{
+
+}
+
+.DateUpdated{
+
+}
+
+.SpecialEquipment{
+
+}
