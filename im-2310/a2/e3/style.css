@@ -1,0 +1,204 @@
+
+
+/* the colour scheme of the website is neutral thus creates a warm and inviting atmosphere. */
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  --col-01:#171219;
+  --col-02:#989593;
+  --col-03:#857C78;
+  --col-04:#6A685B;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav li{
+  font-size: 1rem;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+/* to make the switch button more responsive, i have made a hover effect as well as shadowing 
+as well as a rounded border to make it more distinguishable */
+#mode-button{
+  padding: 13px 40px;
+  font-size: 12px;
+  font-weight: 700;
+  background: none;
+  border: 2px solid;
+  border-radius: 50px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  box-shadow: 0 0 3px 7px transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: right;
+  position: sticky;
+  top: 1rem;
+}
+
+#mode-button:hover {
+  box-shadow: 0 0 0 0 #000;
+  background:#857C78;
+  color: #fff;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* changing button to look like a link */
+#load-link{
+    text-transform: uppercase;
+    background: #928477;
+    color: #282f35;
+    word-spacing: 2px;
+    padding: 7px 30px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #ffffff;
+    transition: all 0.5s;
+  }
+#load-link:hover{
+    background: #222222;
+    color: #ffffff;
+  }
+  
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
+
+/* the colours of the loading bar and the inital button have also been selected accordingly to match the overall theme  */
+#progress-container {
+  width: 20%;
+  height: 20px;
+  background-color: #ddd;
+  margin-top: 20px;
+  display: none;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #6A685B;
+  transition: width 0.2s ease-in;
+}
+
+#load-link{    
+  text-transform: uppercase;
+  background: #504a48;
+  color: #282f35;
+  word-spacing: 2px;
+  padding: 7px 30px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #ffffff;
+  transition: all 0.5s;}
+
+  #load-link:hover{
+    background: #222222;
+    color: #ffffff;
+  }
