@@ -1,21 +1,58 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-    <head>
+  <head>
 
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player Experiment</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="playerControls.js" defer></script>
 
-    <link rel="'stylesheet" href="style.css">
-
-    <script src="script.js"></script>
-
-</head> 
+  </head>
 
 <body>
-    
-    <h1>This is Jo's Boilerplate</h1>
-    
+  <div class="content">
+    <!-- video -->
+    <div class="video-box">
+      <!-- video area -->
+      <div class="video-content">
+        <!-- pause icon -->
+        <span class="pause-icon material-icons-outlined">
+          play_circle_outline
+        </span>
+        <!-- video main area  -->
+        <video class="video-main" ></video>
+        <!-- video control area -->
+        <div class="video-control">
+          <!-- loading bar -->
+          <div class="progress-bar-box">
+            <span 
+              class="progress-bar-main"
+              style="width: 0"></span>
+            <span
+              class="progress-bar-load"
+              style="width: 0;"></span>
+          </div>
+          <!-- button -->
+          <div class="control-btn-box">
+            <span
+              class="play-btn material-icons-outlined">
+              play_circle_outline
+            </span>
+           <div class="control-btn-box">
+              <button class="mute-btn">
+                <span class="material-icons">volume_up</span>
+                <span class="material-icons hidden">volume_off</span>
+              </button>
+            </div>
+            <span
+              class="full-screen-btn material-icons-outlined">
+              fullscreen
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-
 </html>

@@ -1,0 +1,205 @@
+/* because i want to customise the icons with different colours and not have any backgrounds, 
+so i decided to use external custom materail icons */
+
+/* implement the icons */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* the colours are selected from the video to complement the overall visual  */
+  :root {
+    --color-bg: #A06890;
+    --color-dark: #5E204E;
+    --color-light: #e6adea;
+    --color-vc-bg: #00000049;
+    --color-pb-bg: #555555;
+    --color-pbm-bg: #A06890;
+    --color-pbl-bg: #dadada;
+    --color-btn: #A06890;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--color-bg);
+  }
+  
+/* to make the visual more appealing, i added both light and dark shadowing to create a 3d looking effect  */
+  .video-box {
+    display: none;
+    width: 40rem;    background-color: var(--color-pbm-bg);
+    height: auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color-bg);
+    box-shadow: 1rem 1rem 2rem var(--color-dark),
+      -1rem -1rem 2rem var(--color-light);
+    font-size: 10px;
+    box-sizing: border-box;
+    user-select: none;
+  }
+  
+  .video-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: 'Material Icons', serif;
+    background-color: #000000;
+    overflow: hidden;
+  }
+  
+  .pause-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--color-bg);
+    transform: translate(-50%, -50%);
+  }
+  
+  .video-main {
+    width: 100%;
+  }
+  
+  .video-control {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 3.6rem;
+    cursor: default;
+    opacity: 0;
+    opacity: 1;
+    transform: opacity 0.5s;
+  }
+  
+  .video-content:hover .video-control {
+    opacity: 1;
+  }
+  
+  .progress-bar-box {
+    flex: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 0.6rem;
+    background-color: var(--color-pb-bg);
+  }
+  
+  .progress-bar-main {
+    display: block;
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-pbm-bg);
+    z-index: 1;
+  }
+  
+  .progress-bar-load {
+    display: block;
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-pbl-bg);
+    z-index: 0;
+  }
+  
+  .control-btn-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--color-vc-bg);
+    padding: 0 1rem;
+  }
+  
+  .control-btn-box>span {
+    width: fit-content;
+    color: var(--color-btn);
+    font-size: 2.2rem;
+    font-weight: 600;
+    border-radius: 50%;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    background-color: var(--color-vc-bg);
+
+  }
+  
+  /* from the previous experiments, i decided to use the hovering effect for the buttons, not only to make the button more playful */
+  /* but also provides more direct and clear indication for the users */
+  .play-btn:hover{
+    background-color: var(--color-light);
+  }
+
+  .full-screen-btn:hover{
+    background-color: var(--color-light);
+  }
+
+  .mute-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: var(--color-vc-bg);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .mute-btn:hover {
+    background-color: var(--color-light);
+  }
+  
+  .mute-btn:active {
+    background-color: var(--color-pbl-bg);
+  }
+  
+  .mute-btn:focus {
+    box-shadow: 0 0 0.4rem var(--color-btn);
+  }
+  
+  .mute-btn .material-icons {
+    font-size: 2rem;
+    color: var(--color-btn);
+  }
+  
+  .mute-btn .material-icons.hidden {
+    display: none;
+  }
