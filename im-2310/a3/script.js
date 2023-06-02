@@ -29,11 +29,8 @@ document.addEventListener('mousemove', function(event) {
 });
 
 
-// Get the background music element
 const backgroundMusic = document.getElementById('backgroundMusic');
 
-// Play the background music
 backgroundMusic.play();
 
-// Pause the background music
 backgroundMusic.pause();

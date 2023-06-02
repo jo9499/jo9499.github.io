@@ -58,21 +58,18 @@
   const muteToggle = document.getElementById('muteToggle');
   const muteText = document.getElementById('muteText');
 
-  // Function to set the mute state
   function setMuteState(mute) {
     backgroundMusic.muted = mute;
     muteText.textContent = mute ? 'Unmute' : 'Mute';
     localStorage.setItem('isMuted', mute);
   }
 
-  // Function to handle mute toggle
   function handleMuteToggle() {
     const isMuted = JSON.parse(localStorage.getItem('isMuted'));
     const mute = !isMuted;
     setMuteState(mute);
   }
 
-  // Check if the mute state is stored in localStorage
   if (localStorage.getItem('isMuted') === null) {
     setMuteState(false);
   } else {
@@ -80,7 +77,6 @@
     setMuteState(isMuted);
   }
 
-  // Add event listener to the mute toggle button
   muteToggle.addEventListener('click', handleMuteToggle);
 </script>
 
