@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pixel home</title>
+  <!-- i decided to go with a pixelated visuals and the use of old-school fonts create a nostalgic atmosphere reminiscent 
+  of retro video games or early computer graphics. The interactive elements, such as clickable images and sound effects, 
+  further engage the user and contribute to the overall nostalgic experience. -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #053616;
+      font-family: 'VT323', monospace;
+    }
+
+    .floorplan {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+      grid-gap: 20px;
+      justify-content: center;
+      align-content: center;
+      height: 400px;
+    }
+
+    .room {
+      background-color: #d6b98a;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .room a {
+      color: #ffffff; 
+      text-decoration: floralwhite
+    }
+
+    .room:hover {
+      background-color: #d3a55a;
+      text-decoration: line-through;
+    }
+
+    #living-room {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+
+    #bedroom {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+
+    #bathroom {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    #kitchen {
+      grid-area: 1 / 3 / 1 / 4;
+    }
+
+    #office {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+
+    .mute-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #d6b98a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .mute-toggle:hover {
+      background-color: #d35a6a;
+    }
+
+    .mute-toggle.active {
+      background-color: #d35a6a;
+    }
+
+    .mute-toggle span {
+      color: #fff;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+/* at one stage i wanted to add a custom cursor, but it appeared together with the default cursor which is not what i was aiming
+for, so i decided to not use it */
+    .custom-cursor {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      width: 40px;
+      height: 40px;
+      background-image: url('custom-cursor.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      left: -100px;
+      top: -100px;
+    }
+  </style>
+</head>
+
+<!-- The floor plan consists of different clickable rooms, such as the living room, bedroom, kitchen, 
+  bathroom, and office. I have added event listeners to these elements to detect user interactions such as clicks and 
+  mouseovers. When a user clicks or hovers over a room, the corresponding room is marked as visited. 
+  Once all the rooms have been visited, the user is redirected to a new page. Additionally, I have incorporated a
+   mute toggle button to allow the user to control the background music.-->
+
+<!-- initially, i was going to only mark the rooms as visited, however i couldn't get it work, so i then added hovering,
+  however this is not the most desired, first being that it can be easily trigged, and it need to be all hovered on the 
+  same page, so once a user has visited all the rooms, they then need to hover on top of all the rooms again  -->
+<body>
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+  </audio>
+<!-- with the background music, i wanted the music to be seamlessly transitioned to all pages, but i could not get it to
+function, but i did manage to make the music continue with the mute/unmute button -->
+<!-- with some of the rooms, although i have implemented the same script, but sometimes when the floorplan is muted, 
+a few of the rooms wont actally mute when clicked, which is another chanllenge that i came across -->
+  <div class="floorplan">
+    <a href="bedroom.html" class="room" id="bedroom">Bedroom</a>
+    <a href="living-room.html" class="room" id="living-room">Living Room</a>
+    <a href="kitchen.html" class="room" id="kitchen">Kitchen</a>
+    <a href="bathroom.html" class="room" id="bathroom">Bathroom</a>
+    <a href="office.html" class="room" id="office">Office</a>
+  </div>
+
+  <div class="mute-toggle" id="muteToggle">
+    <span id="muteText">Mute</span>
+  </div>
+
+  <div class="custom-cursor"></div>
+
+  <audio id="sound">
+    <source src="hover-sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    var visitedRooms = {
+      bedroom: false,
+      livingRoom: false,
+      kitchen: false,
+      bathroom: false,
+      office: false
+    };
+
+    function checkAllRoomsVisited() {
+      var allVisited = Object.values(visitedRooms).every(function(visited) {
+        return visited;
+      });
+
+      if (allVisited) {
+        window.location.href = 'exit.html';
+      }
+    }
+
+    document.getElementById('bedroom').addEventListener('click', function() {
+      console.log('You clicked the bedroom!');
+      sound.play();
+      visitedRooms.bedroom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('living-room').addEventListener('click', function() {
+      console.log('You clicked the living room!');
+      sound.play();
+      visitedRooms.livingRoom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('kitchen').addEventListener('click', function() {
+      console.log('You clicked the kitchen!');
+      sound.play();
+      visitedRooms.kitchen = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('bathroom').addEventListener('click', function() {
+      console.log('You clicked the bathroom!');
+      sound.play();
+      visitedRooms.bathroom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('office').addEventListener('click', function() {
+      console.log('You clicked the office!');
+      sound.play();
+      visitedRooms.office = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('bedroom').addEventListener('mouseover', function() {
+      console.log('You hovered over the bedroom!');
+      sound.play();
+      visitedRooms.bedroom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('living-room').addEventListener('mouseover', function() {
+      console.log('You hovered over the living room!');
+      sound.play();
+      visitedRooms.livingRoom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('kitchen').addEventListener('mouseover', function() {
+      console.log('You hovered over the kitchen!');
+      sound.play();
+      visitedRooms.kitchen = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('bathroom').addEventListener('mouseover', function() {
+      console.log('You hovered over the bathroom!');
+      sound.play();
+      visitedRooms.bathroom = true;
+      checkAllRoomsVisited();
+    });
+
+    document.getElementById('office').addEventListener('mouseover', function() {
+      console.log('You hovered over the office!');
+      sound.play();
+      visitedRooms.office = true;
+      checkAllRoomsVisited();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      customCursor.style.left = e.clientX + 'px';
+      customCursor.style.top = e.clientY + 'px';
+    });
+  </script>
+
+<script>
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const muteToggle = document.getElementById('muteToggle');
+  const muteText = document.getElementById('muteText');
+
+  function setMuteState(mute) {
+    backgroundMusic.muted = mute;
+    muteText.textContent = mute ? 'Unmute' : 'Mute';
+    localStorage.setItem('isMuted', mute);
+  }
+
+  function handleMuteToggle() {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    const mute = !isMuted;
+    setMuteState(mute);
+  }
+
+  if (localStorage.getItem('isMuted') === null) {
+    setMuteState(false);
+  } else {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    setMuteState(isMuted);
+  }
+
+  muteToggle.addEventListener('click', handleMuteToggle);
+</script>
+  
+</body>
+
+</html>
+
+<!-- overall i am very happy with how the website turned out, although there were many chanllenges which i encounterd and remained
+unsolved, apart from the ones i have mentioned. if i had more time, including simple animation together with the sound effect is
+another big goal which i would want to achieve if more time was allowed -->

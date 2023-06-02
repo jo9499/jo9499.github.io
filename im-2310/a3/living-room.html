@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>living room</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body {
+      background-color: #ead88f;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 32px;
+      margin-top: 200px;
+      color: aliceblue;
+
+    }
+
+    .pixel-home {
+      margin-top: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>meow  /ᐠ｡ꞈ｡ᐟ\</h1>
+  <img class="pixel-home" src="photos/livingroom1.jpg" alt="living-room1 Image" onclick="redirectToLivingroom2()">
+  
+  <audio autoplay loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    function redirectToLivingroom2() {
+      window.location.href = "living-room2.html";
+    }
+  </script>
+
+  <audio id="clickSound">
+    <source src="audio/livingroom-1.mp3" type="audio/mpeg">
+  </audio>
+
+<script>
+    function redirectToLivingroom2() {
+      var clickSound = document.getElementById('clickSound');
+      clickSound.play();
+
+      setTimeout(function() {
+        window.location.href = "living-room2.html";
+      }, 5000);
+    }
+  </script>
+
+<script>
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const muteToggle = document.getElementById('muteToggle');
+  const muteText = document.getElementById('muteText');
+
+  function setMuteState(mute) {
+    backgroundMusic.muted = mute;
+    muteText.textContent = mute ? 'Unmute' : 'Mute';
+    localStorage.setItem('isMuted', mute);
+  }
+
+  function handleMuteToggle() {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    const mute = !isMuted;
+    setMuteState(mute);
+  }
+
+  if (localStorage.getItem('isMuted') === null) {
+    setMuteState(false);
+  } else {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    setMuteState(isMuted);
+  }
+
+muteToggle.addEventListener('click', handleMuteToggle);
+</script>
+
+</body>
+
+</html>

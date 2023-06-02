@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kitchen</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    /* Add your custom styles for the landing page */
+    body {
+      background-color: #d0dfc0;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 32px;
+      margin-top: 200px;
+      color: aliceblue;
+
+    }
+
+    .pixel-home {
+      margin-top: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>done!</h1>
+  <img class="pixel-home" src="photos/kitchen2.jpg" alt="kitchen1 Image" onclick="redirectToFloorPlan()">
+  
+  <audio autoplay loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    function redirectToFloorPlan() {
+      window.location.href = "floorplan.html";
+    }
+  </script>
+
+  <audio id="clickSound">
+    <source src="audio/kitchen2.mp3" type="audio/mpeg">
+  </audio>
+
+<script>
+    function redirectToFloorPlan() {
+      var clickSound = document.getElementById('clickSound');
+      clickSound.play();
+
+      setTimeout(function() {
+        window.location.href = "floorplan.html";
+      }, 5000);
+    }
+  </script>
+
+<script>
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const muteToggle = document.getElementById('muteToggle');
+  const muteText = document.getElementById('muteText');
+
+  // Function to set the mute state
+  function setMuteState(mute) {
+    backgroundMusic.muted = mute;
+    muteText.textContent = mute ? 'Unmute' : 'Mute';
+    localStorage.setItem('isMuted', mute);
+  }
+
+  // Function to handle mute toggle
+  function handleMuteToggle() {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    const mute = !isMuted;
+    setMuteState(mute);
+  }
+
+  // Check if the mute state is stored in localStorage
+  if (localStorage.getItem('isMuted') === null) {
+    setMuteState(false);
+  } else {
+    const isMuted = JSON.parse(localStorage.getItem('isMuted'));
+    setMuteState(isMuted);
+  }
+
+  // Add event listener to the mute toggle button
+  muteToggle.addEventListener('click', handleMuteToggle);
+</script>
+
+</body>
+
+</html>

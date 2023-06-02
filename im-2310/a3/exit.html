@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel House Landing Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    /* Add your custom styles for the landing page */
+    body {
+      background-color: #85a1ac;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 32px;
+      margin-top: 200px;
+      color: aliceblue;
+
+    }
+
+    .pixel-home {
+      margin-top: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> </h1>
+  <img class="pixel-home" src="photos/exit.jpg" alt="" onclick="redirectToLanding()">
+  
+  <audio autoplay loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    function redirectToLanding() {
+      window.location.href = "landing.html";
+    }
+  </script>
+
+  <audio id="clickSound">
+    <source src="audio/click.mp3" type="audio/mpeg">
+  </audio>
+
+<script>
+    function redirectToLanding() {
+      var clickSound = document.getElementById('clickSound');
+      clickSound.play();
+
+      setTimeout(function() {
+        window.location.href = "landing.html";
+      }, 1000); // Delay the transition by 1 second 
+    }
+
+  </script>
+
+
+</body>
+
+</html>

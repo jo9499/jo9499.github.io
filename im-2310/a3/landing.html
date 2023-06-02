@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pixel home</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    /* Add your custom styles for the landing page */
+    body {
+      background-color: #bccbab;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 32px;
+      margin-top: 200px;
+      color: aliceblue;
+    }
+
+    .pixel-home {
+      margin-top: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to your pixel home!</h1>
+  <img class="pixel-home" src="photos/pixel-house.jpg" alt="Pixel House Image" onclick="redirectToFloorPlan()">
+
+  <audio id="clickSound">
+    <source src="audio/click.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function redirectToFloorPlan() {
+      var clickSound = document.getElementById('clickSound');
+      clickSound.play();
+
+      setTimeout(function() {
+        window.location.href = "floorplan.html";
+      }, 1000); // Delay the transition by 1 second
+    }
+  </script>
+
+  <script>
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.play();
+  </script>
+</body>
+
+</html>
